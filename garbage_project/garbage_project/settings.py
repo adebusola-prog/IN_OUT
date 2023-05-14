@@ -83,8 +83,6 @@ CSRF_TRUSTED_ORIGINS = ['https://inout-production.up.railway.app']
 
 
 
-
-
 CRISPY_TEMPLATE_PACK = 'uni_form'
 
 MIDDLEWARE = [
