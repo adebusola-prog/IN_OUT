@@ -10,17 +10,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
-from dotenv import load_dotenv
-load_dotenv()
+# from dotenv import load_dotenv
+# load_dotenv()
 from decouple import config
 from datetime import timedelta
 from pathlib import Path
-
-# import dj_database_url
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-# DATABASE_URL= os.getenv('DATABASE_URL')
+DATABASE_URL= config('DATABASE_URL')
 
 
 
@@ -126,16 +125,16 @@ WSGI_APPLICATION = "garbage_project.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    # "default": dj_database_url.os.getenv(default=DATABASE_URL, conn_max_age=1800)
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME':  config("DB_NAME"),
-        'USER': config("DB_USER"),
-        'PASSWORD': config("DB_PASSWORD"),
-        'PORT': config("DB_PORT"),
-        'HOST': config("DB_HOST"),
+    "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=500)
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME':  config("DB_NAME"),
+    #     'USER': config("DB_USER"),
+    #     'PASSWORD': config("DB_PASSWORD"),
+    #     'PORT': config("DB_PORT"),
+    #     'HOST': config("DB_HOST"),
 
-    }
+    # }
 }
 
 
