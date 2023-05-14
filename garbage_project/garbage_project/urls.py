@@ -6,16 +6,16 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
-from rest_framework import routers
+# from rest_framework import routers
 # from django.views.generic import RedirectView
 
-from accounts.api.views import CustomUserDocumentView, GarbageCollectorDocumentView, LocationDocumentView
+# from accounts.api.views import CustomUserDocumentView, GarbageCollectorDocumentView, LocationDocumentView
 
-router = routers.SimpleRouter(trailing_slash=False)
+# router = routers.SimpleRouter(trailing_slash=False)
 
-router.register(r'customuser-search', CustomUserDocumentView, basename='customuser-search')
-router.register(r'garbagecollector-search', GarbageCollectorDocumentView, basename='garbagecollector-search')
-router.register(r'location-search', LocationDocumentView, basename='location-search')
+# router.register(r'customuser-search', CustomUserDocumentView, basename='customuser-search')
+# router.register(r'garbagecollector-search', GarbageCollectorDocumentView, basename='garbagecollector-search')
+# router.register(r'location-search', LocationDocumentView, basename='location-search')
 
 
 urlpatterns = [
@@ -31,4 +31,4 @@ urlpatterns = [
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-urlpatterns += router.urls
+# urlpatterns += router.urls

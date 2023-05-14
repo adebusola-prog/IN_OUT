@@ -4,8 +4,8 @@ from django.shortcuts import render, redirect
 from .models import ContactUs, FrequentlyAskedQuestions
 from garbage_app.models import Location
 from accounts.models import CustomUser
-from accounts.documents import LocationDocument, GarbageCollectorDocument, CustomUserDocument
-from elasticsearch_dsl import Q
+# from accounts.documents import LocationDocument, GarbageCollectorDocument, CustomUserDocument
+# from elasticsearch_dsl import Q
 
 
 def create_contact(request):
@@ -38,27 +38,27 @@ def faq(request):
 #     locations = Location.objects.all()  
 #     return render(request, '', {'locations': locations})
 
-def search(request):
-    q = request.GET.get('q')
-    if q:
-        location = LocationDocument.search().query("match", name=q).execute()
-        location_ids=[hit.meta.id for hit in location]
-        print(location_ids)
-        custom_users = CustomUser.objects.filter(garbage_collector_location__id__in=location_ids)
-        print(q)
-        garbagecollectors = GarbageCollectorDocument.search().query(Q("match", user=q) | Q("match", user__company_name=q)).execute()    
-    else:
-        location = 'No results found',
-        garbagecollectors = 'No results found',
-        custom_users = "No results Found"
+# def search(request):
+#     q = request.GET.get('q')
+#     if q:
+#         location = LocationDocument.search().query("match", name=q).execute()
+#         location_ids=[hit.meta.id for hit in location]
+#         print(location_ids)
+#         custom_users = CustomUser.objects.filter(garbage_collector_location__id__in=location_ids)
+#         print(q)
+#         garbagecollectors = GarbageCollectorDocument.search().query(Q("match", user=q) | Q("match", user__company_name=q)).execute()    
+#     else:
+#         location = 'No results found',
+#         garbagecollectors = 'No results found',
+#         custom_users = "No results Found"
 
-    context = {
-        "location": location,
-        "garbagecollectors": garbagecollectors,
-        "custom_users": custom_users
+#     context = {
+#         "location": location,
+#         "garbagecollectors": garbagecollectors,
+#         "custom_users": custom_users
     
-    }
-    return render(request, 'contact_us/search.html', context)
+#     }
+#     return render(request, 'contact_us/search.html', context)
 
 
 

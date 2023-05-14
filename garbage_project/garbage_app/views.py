@@ -9,9 +9,9 @@ from django.urls import reverse
 
 import json
 
-from accounts.documents import LocationDocument, GarbageCollectorDocument, CustomUserDocument
+# from accounts.documents import LocationDocument, GarbageCollectorDocument, CustomUserDocument
 from accounts.models import CustomUser, GarbageCollector
-from elasticsearch_dsl import Q
+# from elasticsearch_dsl import Q
 
 from .forms import CollectionRequestForm, CollectionPlanForm, RequestRejectionForm
 from .models import CollectionPlan, CollectionRequest

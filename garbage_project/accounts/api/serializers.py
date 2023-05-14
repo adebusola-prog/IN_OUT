@@ -13,27 +13,27 @@ from rest_framework_simplejwt.exceptions import AuthenticationFailed
 
 from rest_framework import HTTP_HEADER_ENCODING, authentication
 
-from django_elasticsearch_dsl_drf.serializers import DocumentSerializer
+# from django_elasticsearch_dsl_drf.serializers import DocumentSerializer
 
 from ..models import CustomUser
 from garbage_app.models import Location
-from ..documents import CustomUserDocument, GarbageCollectorDocument, LocationDocument
+# from ..documents import CustomUserDocument, GarbageCollectorDocument, LocationDocument
 
 
-class CustomUserDocumentSerializer(DocumentSerializer):
-    class Meta:
-        document = CustomUserDocument
-        fields = '__all__'
+# class CustomUserDocumentSerializer(DocumentSerializer):
+#     class Meta:
+#         document = CustomUserDocument
+#         fields = '__all__'
 
-class GarbageCollectorDocumentSerializer(DocumentSerializer):
-    class Meta:
-        document = GarbageCollectorDocument
-        fields = '__all__'
+# class GarbageCollectorDocumentSerializer(DocumentSerializer):
+#     class Meta:
+#         document = GarbageCollectorDocument
+#         fields = '__all__'
 
-class LocationDocumentSerializer(DocumentSerializer):
-    class Meta:
-        document = LocationDocument
-        fields = '__all__'
+# class LocationDocumentSerializer(DocumentSerializer):
+#     class Meta:
+#         document = LocationDocument
+#         fields = '__all__'
 
 
 class LoginSerializer(TokenObtainPairSerializer):

@@ -1,7 +1,7 @@
 from django.urls import path
 
 from . import views
-from contact_us.views import search
+# from contact_us.views import search
 
 
 app_name='garbage'
@@ -18,7 +18,7 @@ urlpatterns=[
    path("plan_form", views.create_collection_plan, name="plan_form"),
    path("accept", views.send_accept_email),
    path("reject", views.send_reject_email),
-   path("search", search, name='search')
+   # path("search", search, name='search')
    # path('request_form', views.collection_request_create, name="request_create"),
    
 ]

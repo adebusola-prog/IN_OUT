@@ -34,99 +34,99 @@ from .serializers import (
     LocationSerializer,
 )
 from .utils import Utils
-from django_elasticsearch_dsl_drf.constants import SUGGESTER_COMPLETION
-from django_elasticsearch_dsl_drf.filter_backends import SearchFilterBackend, FilteringFilterBackend, SuggesterFilterBackend
-from django_elasticsearch_dsl_drf.viewsets import DocumentViewSet
+# from django_elasticsearch_dsl_drf.constants import SUGGESTER_COMPLETION
+# from django_elasticsearch_dsl_drf.filter_backends import SearchFilterBackend, FilteringFilterBackend, SuggesterFilterBackend
+# from django_elasticsearch_dsl_drf.viewsets import DocumentViewSet
 
-from ..documents import CustomUserDocument, GarbageCollectorDocument, LocationDocument
-from .serializers import CustomUserDocumentSerializer, GarbageCollectorDocumentSerializer, LocationDocumentSerializer
+# from ..documents import CustomUserDocument, GarbageCollectorDocument, LocationDocument
+# from .serializers import CustomUserDocumentSerializer, GarbageCollectorDocumentSerializer, LocationDocumentSerializer
 
-class CustomUserDocumentView(DocumentViewSet):
-    document = CustomUserDocument
-    serializer_class = CustomUserDocumentSerializer
+# class CustomUserDocumentView(DocumentViewSet):
+#     document = CustomUserDocument
+#     serializer_class = CustomUserDocumentSerializer
 
-    filter_backends = [
-        FilteringFilterBackend,
-        SearchFilterBackend,
-        SuggesterFilterBackend
-    ]
+#     filter_backends = [
+#         FilteringFilterBackend,
+#         SearchFilterBackend,
+#         SuggesterFilterBackend
+#     ]
 
-    search_fields = (
-        'company_name',
-        'username',
-        'email',
-        'garbage_collector_location.name'
-    )
+#     search_fields = (
+#         'company_name',
+#         'username',
+#         'email',
+#         'garbage_collector_location.name'
+#     )
 
-    filter_fields = {
-        # Add any specific filtering fields if needed
-    }
+#     filter_fields = {
+#         # Add any specific filtering fields if needed
+#     }
 
-    suggester_fields = {
-        'company_name': {
-            'field': 'company_name.suggest',
-            'suggesters': [
-                SUGGESTER_COMPLETION,
-            ],
-        },
-    }
+#     suggester_fields = {
+#         'company_name': {
+#             'field': 'company_name.suggest',
+#             'suggesters': [
+#                 SUGGESTER_COMPLETION,
+#             ],
+#         },
+#     }
 
-class GarbageCollectorDocumentView(DocumentViewSet):
-    document = GarbageCollectorDocument
-    serializer_class = GarbageCollectorDocumentSerializer
+# class GarbageCollectorDocumentView(DocumentViewSet):
+#     document = GarbageCollectorDocument
+#     serializer_class = GarbageCollectorDocumentSerializer
 
-    filter_backends = [
-        FilteringFilterBackend,
-        SearchFilterBackend,
-        SuggesterFilterBackend
-    ]
+#     filter_backends = [
+#         FilteringFilterBackend,
+#         SearchFilterBackend,
+#         SuggesterFilterBackend
+#     ]
 
-    search_fields = (
-        'user.company_name',
-        'user.username',
-        'user.email',
-        'user.garbage_collector_location.name'
-    )
+#     search_fields = (
+#         'user.company_name',
+#         'user.username',
+#         'user.email',
+#         'user.garbage_collector_location.name'
+#     )
 
-    filter_fields = {
-        # Add any specific filtering fields if needed
-    }
+#     filter_fields = {
+#         # Add any specific filtering fields if needed
+#     }
 
-    suggester_fields = {
-        'user.company_name': {
-            'field': 'user.company_name.suggest',
-            'suggesters': [
-                SUGGESTER_COMPLETION,
-            ],
-        },
-    }
+#     suggester_fields = {
+#         'user.company_name': {
+#             'field': 'user.company_name.suggest',
+#             'suggesters': [
+#                 SUGGESTER_COMPLETION,
+#             ],
+#         },
+#     }
 
-class LocationDocumentView(DocumentViewSet):
-    document = LocationDocument
-    serializer_class = LocationDocumentSerializer
+# class LocationDocumentView(DocumentViewSet):
+#     document = LocationDocument
+#     serializer_class = LocationDocumentSerializer
 
-    filter_backends = [
-        FilteringFilterBackend,
-        SearchFilterBackend,
-        SuggesterFilterBackend
-    ]
+#     filter_backends = [
+#         FilteringFilterBackend,
+#         SearchFilterBackend,
+#         SuggesterFilterBackend
+#     ]
 
-    search_fields = (
-        'name',
-    )
+#     search_fields = (
+#         'name',
+#     )
 
-    filter_fields = {
-        # Add any specific filtering fields if needed
-    }
+#     filter_fields = {
+#         # Add any specific filtering fields if needed
+#     }
 
-    suggester_fields = {
-        'name': {
-            'field': 'name.suggest',
-            'suggesters': [
-                SUGGESTER_COMPLETION,
-            ],
-        },
-    }
+#     suggester_fields = {
+#         'name': {
+#             'field': 'name.suggest',
+#             'suggesters': [
+#                 SUGGESTER_COMPLETION,
+#             ],
+#         },
+#     }
 
 
 

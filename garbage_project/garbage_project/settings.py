@@ -59,25 +59,25 @@ INSTALLED_APPS = [
 
     "phonenumber_field", 
 
-    'django_elasticsearch_dsl',
-    'django_elasticsearch_dsl_drf',
+    # 'django_elasticsearch_dsl',
+    # 'django_elasticsearch_dsl_drf',
 ]
 
 
-ELASTICSEARCH_DSL={
-    'default': {
-        'hosts': 'localhost:9200',
-        'http_auth': ('elastic', config('ELASTICSEARCH_PASSWORD'))
+# ELASTICSEARCH_DSL={
+#     'default': {
+#         'hosts': 'localhost:9200',
+#         'http_auth': ('elastic', config('ELASTICSEARCH_PASSWORD'))
 
 
-    },
-}
+#     },
+# }
 
-ELASTICSEARCH_INDEX_NAMES = {
-    'accounts.CustomUser': 'customuser_index',
-    'accounts.GarbageCollector': 'garbagecollector_index',
-    'garbage_app.Location': 'location_index',
-}
+# ELASTICSEARCH_INDEX_NAMES = {
+#     'accounts.CustomUser': 'customuser_index',
+#     'accounts.GarbageCollector': 'garbagecollector_index',
+#     'garbage_app.Location': 'location_index',
+# }
 
 CSRF_TRUSTED_ORIGINS = ['https://inout-production.up.railway.app']
 
