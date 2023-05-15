@@ -187,7 +187,7 @@ def reset_password(request, uid, token):
 
          if default_token_generator.check_token(user, token):
                password = request.POST.get("password1")
-               confirm_password = request.POST.get("password1")
+               confirm_password = request.POST.get("password2")
 
                if password == confirm_password:
                   user.set_password(password)
