@@ -105,7 +105,7 @@
                <a href="#" class="text-dark"><h4>MY PROFILE</h4></a>
                <hr>
              
-                  <form class="d-flex" method="GET" action="{% url 'garbage:search' %}">
+                  <form class="d-flex" method="GET" action="">
                      {% csrf_token %}
                      <input class="form-control me-2" type="text" name="q", placeholder="Search">
                      <button class="btn btn-dark" type="submit">Search</button>
